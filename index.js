@@ -108,8 +108,8 @@ QuizBot.prototype.listQuizzes = function(slackChannel) {
 			}
 			var output = "";
 			for(var i=0; i<this.quizList.length; i++) {
-				if(i != 0) output += " ";
-				output += '• ' + this.quizList[i];
+				if(i != 0) output += "";
+				output += '\n• ' + this.quizList[i];
 			}
 			this.slack.sendMsg(slackChannel, "Here are the quizzes I've got: " + output);
 		}.bind(this));
