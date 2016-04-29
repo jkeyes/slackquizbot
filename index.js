@@ -88,15 +88,15 @@ QuizBot.prototype.saveQuizToDisk = function(name, url, slackChannel) {
 
 QuizBot.prototype.listQuizzes = function(slackChannel) {
 	this.quizList = [];
-	fs.readdir(__dirname + '/data', function(err, files) {
-		if (err) {
-			//this.slack.sendMsg(slackChannel, "Couldn't find directory. Error: " + err);
-			//return;
-		}else{
-			for(var i=0; i<files.length; i++) {
-				this.quizList.push(files[i].replace(/\.[^/.]+$/, ""));
-			}
-		}
+	// fs.readdir(__dirname + '/data', function(err, files) {
+	// 	if (err) {
+	// 		//this.slack.sendMsg(slackChannel, "Couldn't find directory. Error: " + err);
+	// 		//return;
+	// 	}else{
+	// 		for(var i=0; i<files.length; i++) {
+	// 			this.quizList.push(files[i].replace(/\.[^/.]+$/, ""));
+	// 		}
+	// 	}
 		fs.readdir('data', function(err, files) {
 			if (err) {
 				//this.slack.sendMsg(slackChannel, "Couldn't find directory. Error: " + err);
@@ -113,7 +113,7 @@ QuizBot.prototype.listQuizzes = function(slackChannel) {
 			}
 			this.slack.sendMsg(slackChannel, "Here are the quizzes I've got: " + output);
 		}.bind(this));
-	}.bind(this));
+	// }.bind(this));
 };
 
 QuizBot.prototype.loadQuiz = function(slackChannel, quizId) {
