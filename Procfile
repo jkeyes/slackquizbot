@@ -1,1 +1,1 @@
-web: node myquizbot.js
+web: node index.js
